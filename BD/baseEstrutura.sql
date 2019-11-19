@@ -6,6 +6,7 @@ Autor: Stenio Neves Data 19 Nov 2019
 
 CREATE DATABASE CAD;
 
+USE CAD;
 /*Estrutura das tabelas*/
 
 create table pessoa (
@@ -44,7 +45,7 @@ create table questionarioSocial(
     IdPessoa int(11) not null UNIQUE
 
 
-)
+);
 /*Chave Estrangeira*/
 
 alter table questionarioSocial add CONSTRAINT FK_Pessoa_Social
