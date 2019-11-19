@@ -27,6 +27,25 @@ create table endereco(
     IdPessoa int(11) not null UNIQUE
   
 );
+/* Adcionando a chave estrangeira*/
 alter table endereco add constraint FK_Pessoa_Endereco
 foreign key(IdPessoa) references pessoa(IdPessoa);
 
+/*Questionario Social*/
+create table questionarioSocial(
+    IdQuestionarioSocial int(11) PRIMARY KEY auto_increment,
+    Trabalho enum('S','N') not null,
+    DataUltimoTrabalho date null,
+    TemProfissao enum('S','N') not null,
+    QtdFilhos int(11) null,
+    EstadoCivil enum('Casado','Separado','Divorciado','Solteiro'),
+    TipoCasa enum('Aluguel','Propria','Outros'),
+    Observacao text null,
+    IdPessoa int(11) not null UNIQUE
+
+
+)
+/*Chave Estrangeira*/
+
+alter table questionarioSocial add CONSTRAINT FK_Pessoa_Social
+foreign key(IdPessoa) references pessoa(IdPessoa);
