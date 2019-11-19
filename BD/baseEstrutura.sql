@@ -15,9 +15,18 @@ create table pessoa (
     CPF varchar(14) null unique,
     RG varchar(15) null,
     TelCel varchar(15) null,
-    TelRes varchar(15) null,
-
-
-) 
-
+    TelRes varchar(15) null
+); 
+create table endereco(
+    IdEndereco int(11) PRIMARY KEY auto_increment,
+    Logradouro varchar(60) not null,
+    Numero int(11) NULL,
+    Bairro varchar(30),
+    Cidade varchar(30),
+    UF char(2),
+    IdPessoa int(11) not null UNIQUE
+  
+);
+alter table endereco add constraint FK_Pessoa_Endereco
+foreign key(IdPessoa) references pessoa(IdPessoa);
 
